@@ -71,12 +71,8 @@ show_expanded_icon_for_all_tabs=$(get_tmux_option "@minimal-tmux-show-expanded-i
 # Setting the options in tmux
 tmux set-option -g status-position "$status"
 tmux set-option -g status-style bg=default,fg=default
-tmux set-option -g status-justify "$justify"
-
-tmux set-option -g status-left "$status_left_extra"
-tmux set-option -g status-right "$status_right_extra"
-
-tmux set-option -g window-status-format "$window_status_format"
-"$show_expanded_icon_for_all_tabs" && tmux set-option -g window-status-format " ${window_status_format}#{?window_zoomed_flag,${expanded_icon},}"
-
-tmux set-option -g window-status-current-format "#[fg=${bg}]$larrow#[bg=${bg},fg=${fg}]${window_status_format}#{?window_zoomed_flag,${expanded_icon},}#[fg=${bg},bg=default]$rarrow"
+tmux set-option -g status-justify "${justify}"
+tmux set-option -g status-left "#[bg=default,fg=default,bold]#{?client_prefix,,${indicator}}#[bg=${bg},fg=black,bold]#{?client_prefix,${indicator},}#[bg=default,fg=default,bold] #S "
+tmux set-option -g status-right ""
+tmux set-option -g window-status-format " #I:#W "
+tmux set-option -g window-status-current-format "#[bg=${bg},fg=#000000] #I:#W#{?window_zoomed_flag, 󰊓 , }"
