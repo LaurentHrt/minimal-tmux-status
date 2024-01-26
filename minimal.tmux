@@ -24,7 +24,7 @@ fi
 tmux set-option -g status-position "${status}"
 tmux set-option -g status-style bg=default,fg=default
 tmux set-option -g status-justify "${justify}"
-tmux set-option -g status-left "#[bg=default,fg=default,bold]#{?client_prefix,,${indicator}}#[bg=${bg},fg=black,bold]#{?client_prefix,${indicator},}#[bg=default,fg=default,bold] #S "
+tmux set-option -g status-left "#[bg=default,fg=default,bold]#{?client_prefix,,${indicator}}#[bg=${bg},fg=black,bold]#{?client_prefix,${indicator},}#[bg=default,fg=default,bold]  #S  "
 tmux set-option -g status-right ""
 tmux set-option -g window-status-format " #I:#W "
 tmux set-option -g window-status-current-format "#[bg=${bg},fg=#000000] #I:#W#{?window_zoomed_flag, 󰊓 , }"
